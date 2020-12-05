@@ -16,6 +16,14 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    if (time === 0) {
+      return;
+    }
+    let id = setInterval(() => setTime(time - 1), 1000);
+    return () => clearInterval(id);
+  }, [time]);
+
   return (
     <div className="wrapper">
       <div id="whole-center">
